@@ -63,3 +63,24 @@ def get_db() -> mysql.connector.connection.MySQLConnection:
         password=password,
         database=database
     )
+
+def main() -> None:
+    """ Main function"""
+    logger = get_logger()
+
+    connector = get_db()
+    cursor = connector.cursor()
+
+    cursor.execute('SELECT * FROM `users`;')
+    users = cursor.fetchall()
+
+    column_names = cursor.column_names
+
+    for user in users:
+        formatted_user = "".join(f"{attribute}={value}; " for
+                                 attribute, value in zip(column_names, user))
+        logger.info(formatted_user)
+
+
+if __name__ == '__main__':
+    main()
