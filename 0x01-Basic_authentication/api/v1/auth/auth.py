@@ -1,4 +1,5 @@
-
+#!/usr/bin/env python3
+""" Auth module"""
 
 from flask import request, jsonify
 from typing import List, TypeVar
@@ -35,6 +36,7 @@ class Auth:
             return None
 
         return header
+
 
     def current_user(self, request=None) -> TypeVar('User'):
         """Current user"""
