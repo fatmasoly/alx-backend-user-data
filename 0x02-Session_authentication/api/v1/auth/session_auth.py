@@ -3,7 +3,10 @@
 
 from models.user import User
 from api.v1.auth.auth import Auth
+from api.v1.views import app_views
 import uuid
+from flask import request, jsonify, abort
+from os import getenv
 
 
 class SessionAuth(Auth):
