@@ -3,6 +3,7 @@
 
 from flask import request, jsonify
 from typing import List, TypeVar
+import os
 
 
 class Auth:
@@ -39,3 +40,9 @@ class Auth:
     def current_user(self, request=None) -> TypeVar('User'):
         """Current user"""
         return None
+
+    def session_cookie(self, request=None):
+        """Session cookie"""
+        if request:
+            cookie_name = os.getenv('SESSION_NAME')
+            return request.cookies.get(cookie_name)
