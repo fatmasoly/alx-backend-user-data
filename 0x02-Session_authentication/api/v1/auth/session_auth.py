@@ -8,7 +8,6 @@ class SessionAuth(Auth):
     """SessionAuth class"""
     pass
 
-
     def __init__(self) -> None:
         """ Constructor"""
         super().__init__()
