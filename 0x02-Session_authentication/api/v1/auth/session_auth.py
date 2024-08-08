@@ -14,7 +14,6 @@ class SessionAuth(Auth):
         """ Constructor"""
         super().__init__()
 
-
     def create_session(self, user_id: str = None) -> str:
         """ Create a session"""
         if not user_id or not isinstance(user_id, str):
