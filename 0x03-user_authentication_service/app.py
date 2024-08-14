@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """ Flask app"""
 
-from flask import Flask, jsonify
+from flask import Flask, jsonify, request
 from auth import Auth
 
 
@@ -16,8 +16,8 @@ def index() -> str:
 
 
 @app.route('/users', methods=['POST'], strict_slashes=False)
-def users() -> str:
-    """ POST /users route """
+def register_user():
+    """end-point to register a user"""
     email = request.form.get('email')
     password = request.form.get('password')
 
